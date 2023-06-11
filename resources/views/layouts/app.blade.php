@@ -12,8 +12,13 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/build/assets/app.css" />
+
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{--@vite(['resources/css/app.css', 'resources/js/app.js'])--}}
+
+
 
     <!-- Styles -->
     @livewireStyles
@@ -22,9 +27,18 @@
 <body class="overflow-x-hidden font-sans antialiased">
 
 
+    @auth
+    @livewire('navigation-menu')
 
+    @else
 
     <x-header />
+    @endauth
+
+
+
+
+
 
 
     <!-- Page Heading -->
@@ -45,9 +59,13 @@
     <x-footer />
 
 
+    @stack('script')
+
     @stack('modals')
 
     @livewireScripts
+
+    <script src="/build/assets/app.js" defer></script>
 </body>
 
 </html>
